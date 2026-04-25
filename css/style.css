@@ -1,0 +1,40 @@
+/* Formateamos los estilos de la pagina*/
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* se configura el tamaño de fuente*/
+html{
+    font-size: 100%;
+}
+
+
+.contenedor-header{
+    background-color: #777;
+    width: 100%;
+    text-align: center;
+}
+
+.contenedor-main{
+    background-color: #333;
+    height: 400px;
+    text-align: center;
+    
+}
+.titulo-main{
+    padding: 20px;
+}
+
+.contenedor-colores{
+    background-color: white;
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+}
+
+.color{
+    height: 300px;
+    border: 2px solid black;
+}
