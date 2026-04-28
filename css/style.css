@@ -1,53 +1,101 @@
-/* Formateamos los estilos de la pagina*/
+/* ===== RESET ===== */
 *{
     margin: 0;
     box-sizing: border-box;
 }
-/* se configura el tamaño de fuente*/
+
+/* ===== FONTS ===== */
+:root{
+    --fs-xs: 0.75rem;   /* 12px */
+    --fs-sm: 0.875rem;  /* 14px */
+    --fs-md: 1rem;      /* 16px (base) */
+    --fs-lg: 1.125rem;  /* 18px */
+    --fs-xl: 1.25rem;   /* 20px */
+    --fs-2xl: 1.5rem;   /* 24px */
+    --fs-3xl: 1.875rem; /* 30px */
+}
+
+
+/* ===== COLORS ===== */
+:root{
+    --white-color: #eee;
+    --black-color: #000;
+    --grey-color: #aaa;
+    --grey-dark: #222 ;
+    --grey-dark-transparent:rgba(2,2,2,0.5); 
+
+}
+/* ===== SETING ===== */
+
 html{
     font-size: 100%;
 }
-
 body{
     height: 100%;
 }
 
+/* ===== HEADER ===== */
 .contenedor-header{
-    background-color: #000;
-    color: #eee;
-    padding: 15px;
-    height: 10vh ;
-    text-align: center;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    min-height: 15vh ;
     font-family: 'Trebuchet MS', sans-serif;
-}
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
 .titulo-principal{
-    font-size: 1.7rem;
+    font-size: var(--fs-3xl);
     font-weight: bold;
 }
-
 .descripcion{
-    color: #999;
-    margin-top: 10px;
+    color: var(--grey-color);
     font-weight: lighter ;
 }
 
+/* ===== BUTON PANEL ===== */
 .contenedor-botones{
-    background-color: #222;
-    height: 30vh;
+    background-color: var(--grey-dark);
+    min-height: 20vh;
+
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 2fr 1fr 2fr;
+
     justify-items: center;
     align-items: center;
-    justify-content: space-between;
+}
+.contenedor-botones button, select {
+    background-color: var(--grey-dark-transparent);
+    color: var(--grey-color);
+    min-width: 23vh;
+    min-height: 8vh;
+    border-radius: 7px;
+    font-size: var(--fs-md);
+    padding: 20px;
+    border: none;
+}
+.contenedor-botones select{
+    justify-self: end;
+}
+option{
+    background-color: var(--grey-dark);
+    color: var(--grey-color);
+
 }
 
-.columnas{
-    margin: 0;
-
+#boton-exportar{
+    justify-self: start;
 }
 
-.contenedor-colores{
-    height: 60vh;
-    background-color: aqua;
+/* ===== COLORS PANELS ===== */
+#contenedor-colores{
+    min-height: 65vh;
+    background-color: var(--white-color);
+    display: grid;
+    
+
+    
 }
