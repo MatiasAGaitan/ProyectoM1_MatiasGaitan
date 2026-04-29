@@ -1,10 +1,10 @@
-/* ===== RESET ===== */
+/* ----------- RESET-------------- */
 *{
     margin: 0;
     box-sizing: border-box;
 }
 
-/* ===== FONTS ===== */
+/* ------------ TAMAÑOS FUENTES --------------- */
 :root{
     --fs-xs: 0.75rem;   /* 12px */
     --fs-sm: 0.875rem;  /* 14px */
@@ -16,7 +16,7 @@
 }
 
 
-/* ===== COLORS ===== */
+/* ---------- COLORES------------- */
 :root{
     --white-color: #eee;
     --black-color: #000;
@@ -25,21 +25,20 @@
     --grey-dark-transparent:rgba(2,2,2,0.5); 
 
 }
-/* ===== SETING ===== */
-
+/* -----------CONFIGURACION-------------- */
 html{
     font-size: 100%;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 body{
     height: 100%;
 }
 
-/* ===== HEADER ===== */
+/* ------------- HEADER---------------- */
 .contenedor-header{
     background-color: var(--black-color);
     color: var(--white-color);
     min-height: 15vh ;
-    font-family: 'Trebuchet MS', sans-serif;
 
     display: flex;
     flex-direction: column;
@@ -51,12 +50,12 @@ body{
     font-size: var(--fs-3xl);
     font-weight: bold;
 }
-.descripcion{
-    color: var(--grey-color);
+.descripcion{   
+    color: var(--grey-color);           
     font-weight: lighter ;
 }
 
-/* ===== BUTON PANEL ===== */
+/* ---------BOTONES------------ */
 .contenedor-botones{
     background-color: var(--grey-dark);
     min-height: 20vh;
@@ -77,8 +76,13 @@ body{
     padding: 20px;
     border: none;
 }
-.contenedor-botones select{
+.contenedor-seleccion{
     justify-self: end;
+    color: var(--grey-color);
+    font-size: var(--fs-xs);
+}
+.contenedor-seleccion h2{
+    margin-bottom: 20px;
 }
 option{
     background-color: var(--grey-dark);
@@ -90,11 +94,12 @@ option{
     justify-self: start;
 }
 
-/* ===== COLORS PANELS ===== */
+/*------------- CONTENEDOR COLORES ------------------ */
 #contenedor-colores{
     min-height: 65vh;
     background-color: var(--white-color);
     display: grid;
+    grid-template-columns: repeat(6, 1fr);
     
 
     
