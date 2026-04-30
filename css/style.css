@@ -114,7 +114,7 @@ option{
     display: grid;
 }
 
-.caractColor{
+.descripcion-color{
     color: var(--black-color);
     text-align: center;
 }
