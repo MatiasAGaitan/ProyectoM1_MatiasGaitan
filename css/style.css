@@ -62,45 +62,59 @@ body{
 
     display: grid;
     grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 40px 3fr auto;
+    grid-template-areas: 
+        "titulo-seleccion . . "
+        "seleccion-cantidad boton-generar boton-exportar"
+        ". . . ";
 
     justify-items: center;
     align-items: center;
 }
-.contenedor-botones button, select {
+.boton-generar, .boton-exportar, .seleccion-cantidad {
     background-color: var(--grey-dark-transparent);
     color: var(--grey-color);
     min-width: 23vh;
     min-height: 8vh;
     border-radius: 7px;
     font-size: var(--fs-md);
-    padding: 20px;
+    text-align: center;
     border: none;
+    align-self: start;
 }
-.contenedor-seleccion{
+.titulo-seleccion{
+    grid-area: titulo-seleccion;
     justify-self: end;
+    align-self: end;
     color: var(--grey-color);
-    font-size: var(--fs-xs);
+    font-size: var(--fs-md);
 }
-.contenedor-seleccion h2{
-    margin-bottom: 20px;
+.seleccion-cantidad{
+    grid-area: seleccion-cantidad;
+    justify-self: end;
+    
 }
 option{
     background-color: var(--grey-dark);
     color: var(--grey-color);
 
 }
-
-#boton-exportar{
+.boton-generar{
+    grid-area: boton-generar;
+}
+.boton-exportar{
+    grid-area: boton-exportar;
     justify-self: start;
 }
 
 /*------------- CONTENEDOR COLORES ------------------ */
-#contenedor-colores{
+.contenedor-colores{
     min-height: 65vh;
-    background-color: var(--white-color);
+    background-color: var(--grey-dark);
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    
+}
 
-    
+.caractColor{
+    color: var(--black-color);
+    text-align: center;
 }
