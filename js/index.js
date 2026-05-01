@@ -32,43 +32,37 @@ botonGenerar.addEventListener("click",function(){
     
     for (let i = 0 ; i < valor; i++){    
         let color = colorHsl()
-        const hijoColor = document.createElement("div")                    // Crea hijo 
-        hijoColor.classList.add("color")                                  // Agrega clase al contenedor 
-        hijoColor.style.backgroundColor = color
+        
+        // Crea el div del color - le agrega clase - da color
+        const cajaColor = document.createElement("div")                   
+        cajaColor.classList.add("color")                                  
+        cajaColor.style.backgroundColor = color
 
-        const descripcionColor = document.createElement("p")               // Crea descripcion 
-        descripcionColor.classList.add("descripcion-color")               // Agrega clase al contenedor
+        // Crea el parrafo - le agrega la clase - agrega el contenido a mostrar en p
+        const descripcionColor = document.createElement("p")               
+        descripcionColor.classList.add("descripcion-color")               
         descripcionColor.textContent = color
 
-
-        contenedorColores.appendChild(hijoColor)                          // Agrega el hijo al padre
-        hijoColor.appendChild(descripcionColor)
-        
+        // Agrega dentro de cada padre a su hijo
+        contenedorColores.appendChild(cajaColor)                          
+        cajaColor.appendChild(descripcionColor)
         }
+
+    // Crea el elemento p que va a ser mostrado despues de generar los colores
+    const mensajeUsuario = document.createElement("p")
+    mensajeUsuario.classList.add("mensaje-usuario")
+    mensajeUsuario.textContent = "PALETA DE COLORES GENERADA CON EXITO🚀✔️"
+    contenedorColores.appendChild(mensajeUsuario)
+    
+    // esta funcion hace que depues de cierto tiempo x cosa suceda 
+    setTimeout(function(){
+        mensajeUsuario.style.display = "none"
+    },1500)
+
+
     })
 
 
 
 
-
-
-/* // EVENTO CUANDO EL MOUSE ENTRA AL COLOR
-contenedorColores.addEventListener("mouseover",function(event){
-    if(event.target.className === "color"){
-        const caractColor = document.createElement("div")
-        caractColor.classList.add("caractColor")
-        caractColor.textContent = "COLOR"
-    
-    }
-})
- */
-
-/* 
-// EVENTO CUANDO EL MOUSE SALE DEL COLOR
-contenedorColores.addEventListener("mouseout",function(event){
-    if(event.target.className === "color"){
-        event.target.textContent = ""
-    }
-})
-*/
 
