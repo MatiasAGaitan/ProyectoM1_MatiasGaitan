@@ -72,7 +72,7 @@ botonGenerar.addEventListener("click",function(){
 
             //CANDADO
             const candado = crearElemento("img","candado")
-            candado.src ="../img/abierto.png"
+            candado.src ="abierto.png"
             candado.classList.add("desbloqueado")
             cajaColor.appendChild(candado)
 
@@ -81,10 +81,10 @@ botonGenerar.addEventListener("click",function(){
                     // si candado desbloqueado lo bloqueamos
                 if (candado.classList.contains('desbloqueado')) {
                     candado.classList.remove("desbloqueado")
-                    candado.src = "../img/cerrado.png"
+                    candado.src = "cerrado.png"
                 } else { // si esta bloqueado lo desbloqueamos
                     candado.classList.add("desbloqueado")
-                    candado.src = "../img/abierto.png"
+                    candado.src = "abierto.png"
                 }})                           
             
 
