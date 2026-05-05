@@ -118,7 +118,7 @@ option{
 
 /*------------- CONTENEDOR COLORES ------------------ */
 .contenedor-colores{
-    min-height: 70vh;
+    min-height: 65vh;
     background-color: var(--grey-dark);
     display: grid;
 }
@@ -232,6 +232,9 @@ option{
         font-size: var(--fs-xs);
     }
 
+    .contenedor-colores{
+        min-height: 70vh;
+    }
 }
 
     
