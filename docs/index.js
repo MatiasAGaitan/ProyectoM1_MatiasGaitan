@@ -31,7 +31,7 @@ const crearElemento = function(elemento,clase){
 botonGenerar.addEventListener("click",function(){
     const valor = Number(seleccionCantidad.value)
     
-    contenedorColores.style.gridTemplateColumns = `repeat(${valor},1fr)`   // Ubica cantidad de columnas necesarias segun lo seleccionado
+    contenedorColores.className = "colores-" + String(valor)   // Ubica cantidad de columnas necesarias segun lo seleccionado
     
     //MENSAJE USUARIO
     mensajeUsuario.style.display = "flex"
