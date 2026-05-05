@@ -31,8 +31,8 @@ const crearElemento = function(elemento,clase){
 botonGenerar.addEventListener("click",function(){
     const valor = Number(seleccionCantidad.value)
     
-    contenedorColores.className = "colores-" + String(valor)   // Ubica cantidad de columnas necesarias segun lo seleccionado
-    
+    contenedorColores.classList.add("colores-" + valor)     // le da la clase adecuada para elegir cantidad de columnas 
+
     //MENSAJE USUARIO
     mensajeUsuario.style.display = "flex"
 
