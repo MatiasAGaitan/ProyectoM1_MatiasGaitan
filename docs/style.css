@@ -194,7 +194,7 @@ option{
 
 
 /* Control de media quires para moviles  */
-@media (max-width: 640px) {
+@media (max-width: 480px) {
     .colores-6, .colores-8, .colores-9 {
         grid-template-columns: repeat(3, 1fr);
     }
