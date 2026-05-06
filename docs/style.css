@@ -39,6 +39,7 @@ body{
     background-color: var(--black-color);
     color: var(--white-color);
     min-height: 15vh ;
+    max-width: 100vw;
 
     display: flex;
     flex-direction: column;
@@ -61,12 +62,13 @@ body{
     min-height: 20vh;
 
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
-    grid-template-rows: 40px 3fr auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 15px ,repeat(2,1fr);
     grid-template-areas: 
-        "titulo-seleccion . . "
-        "seleccion-cantidad boton-generar boton-exportar"
-        ". . . ";
+        "titulo-seleccion .  "
+        "seleccion-cantidad boton-generar"
+        "consejo consejo "
+;
 
     justify-items: center;
     align-items: center;
@@ -74,7 +76,7 @@ body{
 .boton-generar, .boton-exportar, .seleccion-cantidad {
     background-color: var(--grey-dark-transparent);
     color: var(--grey-color);
-    min-width: 23vh;
+    min-width: 30vh;
     min-height: 8vh;
     border-radius: 7px;
     font-size: var(--fs-md);
@@ -95,6 +97,8 @@ body{
     grid-area: titulo-seleccion;
     justify-self: end;
     align-self: end;
+    margin-right: 25px;
+    margin-bottom: 5px;
     color: var(--grey-color);
     font-size: var(--fs-md);
 }
@@ -106,15 +110,22 @@ body{
 option{
     background-color: var(--grey-dark);
     color: var(--grey-color);
+    text-align: center;
 
 }
 .boton-generar{
     grid-area: boton-generar;
+    justify-self: start ;
+    margin-left: 20px;
 }
-.boton-exportar{
-    grid-area: boton-exportar;
-    justify-self: start;
+
+.consejo{
+    grid-area: consejo;
+    color: var(--grey-color);
+    margin-bottom: 15px;
+
 }
+
 
 /*------------- CONTENEDOR COLORES ------------------ */
 .contenedor-colores{
@@ -143,20 +154,21 @@ option{
 }
 .color:hover {
     transition: 0.5s;
-    transform: scaleX(1.1);
+    transform: translateY(-10px);
     cursor: pointer;
 }
 
 .candado{
-    max-width: 40px;
-    max-height: 40px;
+    max-width: 2rem;
+    max-height: 2rem;
     font-size: 2rem;
     cursor: pointer;
     background-color: rgba(255,255,255,0.5);
     border-radius: 100%;
     margin-top: 20px;
     display: flex;
-    align-self: center;
+    align-self: end;
+    margin-right: 20px;
     
     /* Transiciones suaves */
     transition: all 0.2s ;
@@ -166,12 +178,16 @@ option{
 }
 
 .descripcion-color{
+    max-width: 10rem;
+    align-self: center;
     color: var(--white-color);
     background-color: var(--grey-dark-transparent);
-    font-size: var(--fs-md);
+    font-size: var(--fs-sm);
     text-align: center;
     border-radius: 20px;
-    margin-bottom: 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
 
 }
 
@@ -195,46 +211,67 @@ option{
 
 /* Control de media quires para moviles  */
 @media (max-width: 480px) {
-    .colores-6, .colores-8, .colores-9 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .contenedor-botones {
-        grid-template-columns: 1fr;
-        grid-template-areas: 
-            "titulo-seleccion"
-            "seleccion-cantidad"
-            "boton-generar"
-            "boton-exportar";
-    }
-
-    .boton-generar,.seleccion-cantidad,.boton-exportar{
-    justify-self: center;
-    min-width: 100vw;
-    min-height: 5vh;
-}
-
-.titulo-seleccion {
-    justify-self: center;
-    align-self: center;
-    min-height: 1vh;
-    }
-
+    /* HEADER */
     .contenedor-header{
         min-height: 10vh;
     }
-
+    
     .titulo-principal{
         font-size: var(--fs-xl)
     }
-
-    .descripcion{
-        font-size: var(--fs-xs);
+    
+    /* BOTONES */
+    .contenedor-botones {
+        min-height: 10vh;
+        gap: 7px;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        "titulo-seleccion"
+        "seleccion-cantidad"
+        "boton-generar"
+        "consejo";
     }
+    
+    .boton-generar,.seleccion-cantidad{
+        justify-self: center;
+        min-width: 80vw;
+        min-height: 8vh;
+        margin: 0;
+    }
+    
+    .titulo-seleccion {
+        justify-self: center;
+        align-self: center;
+        margin: 0;
+        margin-top: 5px;
+    }
+    
+    .consejo{
+        font-size: 0.7rem;
+        margin: 10px 10px 20px 20px;
 
+    }
+    /* COLORES */
     .contenedor-colores{
         min-height: 70vh;
     }
+
+    .colores-6, .colores-8, .colores-9 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .color{
+        min-height: 26vh;
+    }
+
+    .descripcion-color{
+        font-size: 0.7rem;
+    }
+
+    .candado{
+        max-width: 1.5rem;
+        max-height: 1.5rem;
+    }
 }
 
-    
+

@@ -30,8 +30,12 @@ const crearElemento = function(elemento,clase){
 // EVENTO CLICK EN GENERAR
 botonGenerar.addEventListener("click",function(){
     const valor = Number(seleccionCantidad.value)
-    
-    contenedorColores.classList.add("colores-" + valor)     // le da la clase adecuada para elegir cantidad de columnas 
+    let tamañoAnterior = contenedorColores.classList[1]
+    let tamañoNuevo = "colores-" + valor
+    contenedorColores.classList.remove(tamañoAnterior)
+    contenedorColores.classList.add(tamañoNuevo)   // le da la clase adecuada para elegir cantidad de columnas 
+    console.log(contenedorColores.className)
+    console.log("-----------------------")
 
     //MENSAJE USUARIO
     mensajeUsuario.style.display = "flex"
