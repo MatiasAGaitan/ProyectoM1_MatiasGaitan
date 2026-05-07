@@ -155,7 +155,7 @@ option{
 .color:hover {
     transition: 0.5s;
     transform: translateY(-10px);
-    cursor: pointer;
+
 }
 
 .candado{
@@ -182,12 +182,13 @@ option{
     align-self: center;
     color: var(--white-color);
     background-color: var(--grey-dark-transparent);
-    font-size: var(--fs-sm);
+    font-size: var(--fs-xl);
     text-align: center;
     border-radius: 20px;
     padding: 5px;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    margin: 0 0 10px 10px;
+    cursor: pointer;
+
 
 }
 
@@ -265,7 +266,7 @@ option{
     }
 
     .descripcion-color{
-        font-size: 0.7rem;
+        font-size: var(--fs-sm);
     }
 
     .candado{

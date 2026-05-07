@@ -15,10 +15,16 @@ const colorHsl = function(){
     const color = `hsl(${numeroAleatorio(360)},${numeroAleatorio(100)}%,${numeroAleatorio(100)}%)`
     return color
 }
-const colorRgb = function(){
-    const color = `rgb(${numeroAleatorio(255)},${numeroAleatorio(255)},${numeroAleatorio(255)})`
+const colorHexa = function(){
+    const caractHexa = "0123456789abcdef"
+    let color = "#"
+    for (let i = 0; i<6; i++) {
+        let indexAleatorio = numeroAleatorio(16)
+        color+= caractHexa[indexAleatorio];
+    }
     return color
 }
+
 // Funcion para crear elementos
 const crearElemento = function(elemento,clase){
     const nombre = document.createElement(String(elemento))                   
@@ -30,19 +36,21 @@ const crearElemento = function(elemento,clase){
 // EVENTO CLICK EN GENERAR
 botonGenerar.addEventListener("click",function(){
     const valor = Number(seleccionCantidad.value)
+
     let tamañoAnterior = contenedorColores.classList[1]
     let tamañoNuevo = "colores-" + valor
     contenedorColores.classList.remove(tamañoAnterior)
     contenedorColores.classList.add(tamañoNuevo)   // le da la clase adecuada para elegir cantidad de columnas 
-    console.log(contenedorColores.className)
-    console.log("-----------------------")
+
 
     //MENSAJE USUARIO
+    mensajeUsuario.textContent = "PALETA DE COLORES GENERADA CON EXITO🚀✔️"
+    mensajeUsuario.style.width = "400px"
     mensajeUsuario.style.display = "flex"
 
     setTimeout(function(){
         mensajeUsuario.style.display = "none"       // ejecuta la funcion despues de x tiempo (es milisegundos)
-    },1500)
+    },2000)
 
     // si los hijos existen verificar candado
     if (contenedorColores.children.length === valor){
@@ -57,7 +65,7 @@ botonGenerar.addEventListener("click",function(){
 
             //Verificacion de candado
             if (candado.classList.contains("desbloqueado")){
-                const nuevoColor = colorHsl()
+                const nuevoColor = colorHexa()
                 caja.style.backgroundColor = nuevoColor;
                 descripcionColor.textContent = nuevoColor
             }
@@ -67,7 +75,7 @@ botonGenerar.addEventListener("click",function(){
             contenedorColores.innerHTML= ""
 
         for (let i = 0 ; i < valor; i++){    
-            const color = colorHsl()
+            const color = colorHexa()
             
             // COLOR
             const cajaColor = crearElemento("div","color")
@@ -96,6 +104,18 @@ botonGenerar.addEventListener("click",function(){
             const descripcionColor = crearElemento("p","descripcion-color")              
             descripcionColor.textContent = color
             cajaColor.appendChild(descripcionColor)
+
+            descripcionColor.addEventListener("click",function(){
+                navigator.clipboard.writeText(color)
+
+                mensajeUsuario.textContent = "✅ Copiado al portapapeles"
+                mensajeUsuario.style.display = "flex"
+                mensajeUsuario.style.width = "300px"
+
+                setTimeout(function(){
+                    mensajeUsuario.style.display = "none"
+                    },2000)
+            })
             
 
 
