@@ -105,6 +105,7 @@ body{
 .seleccion-cantidad{
     grid-area: seleccion-cantidad;
     justify-self: end;
+    text-align: center;
     
 }
 option{
