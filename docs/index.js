@@ -1,20 +1,27 @@
-//SELECCIONANDO ELEMENTOS
+//Seleccion de elementos
 const botonGenerar = document.querySelector(".boton-generar");
 const contenedorColores = document.querySelector(".contenedor-colores")
 const seleccionCantidad = document.querySelector(".seleccion-cantidad")
 const contenedorMain = document.querySelector(".contenedor-main")
 const tamañoPaleta = document.querySelector(".option")
+const formato = document.querySelectorAll(`input[name="formato"]`)
 
-// GENERADOR DE NUMEROS ALEATORIOS
+//creo variables globales
+let feedbackTimeout
+let valorFormato
+
+
+// Genera numeros aleatorios
 const numeroAleatorio = function(limite){
     numero = Math.floor(Math.random()*limite)
     return numero
 }
-// FUNCION GENERADORA DE COLORES HLS
+// Crea colores HSL
 const colorHsl = function(){
     const color = `hsl(${numeroAleatorio(360)},${numeroAleatorio(100)}%,${numeroAleatorio(100)}%)`
     return color
 }
+// Crea colores Hexadecimales
 const colorHexa = function(){
     const caractHexa = "0123456789abcdef"
     let color = "#"
@@ -24,21 +31,23 @@ const colorHexa = function(){
     }
     return color
 }
-// Funcion para crear elementos
+// Crea elementos y le da clase
 const crearElemento = function(elemento,clase){
     const nombre = document.createElement(String(elemento))                   
     nombre.classList.add(String(clase))
     return nombre
 }
-// Funcion para mostrar microfeedback al usuario
+// Muestra microfeedback al usuario
 const microfeedback = function(texto,tamaño){
-    mensajeUsuario.textContent = String(texto)
+    mensajeUsuario.textContent = texto
     mensajeUsuario.style.display = "flex"
-    mensajeUsuario.style.width = String(tamaño)
+    mensajeUsuario.style.width = tamaño
+
+    clearTimeout(feedbackTimeout);
     
-    setTimeout(function(){
+    feedbackTimeout = setTimeout(function(){
         mensajeUsuario.style.display = "none"
-        },3000)
+        },2000)
 }
 
 // EVENTO CLICK EN GENERAR
@@ -58,30 +67,32 @@ botonGenerar.addEventListener("click",function(){
         
         for (let i = 0 ; i < valor; i++){
             
-            //Los hijos existen "retomaos" sus datos 
+            //Los hijos existen "retomamos" sus datos 
             const caja = contenedorColores.children[i];
             const candado = caja.querySelector(".candado");
-            const descripcionColor = caja.querySelector("p")
+            const descripcionColor = caja.querySelector(".descripcion-color")
 
             //Verificacion de candado
             if (candado.classList.contains("desbloqueado")){
-                const nuevoColor = colorHexa()
+                const nuevoColor = valorFormato === "HEXA" ? colorHexa() : colorHsl()
                 caja.style.backgroundColor = nuevoColor;
                 descripcionColor.textContent = nuevoColor
-            }
-        }
-            }else{
+            }}
+
+    }else{
+        //Los hijos no existen creamos todo
             //Formateo contenedor
             contenedorColores.innerHTML= ""
 
         for (let i = 0 ; i < valor; i++){    
-            const color = colorHexa()
+            const color = valorFormato === "HEXA" ? colorHexa() : colorHsl()
             
             // COLOR
             const cajaColor = crearElemento("div","color")
             cajaColor.style.backgroundColor = color
             contenedorColores.appendChild(cajaColor)
 
+            //-------------------------------------------------------CANDADO PARA BLOQUEAR Y DESBLOQUEAR COLOR-------------------------------------------
             //CANDADO
             const candado = crearElemento("img","candado")
             candado.src ="abierto.png"
@@ -101,35 +112,72 @@ botonGenerar.addEventListener("click",function(){
                     candado.src = "abierto.png"
                     cajaColor.style.border = "none"
                     microfeedback("🔓 Color desbloqueado", "200PX")
-                }
-            }
-        )                           
-            
-            // TEXTO
+                }}
+            )                              
+            const infoBloquear = crearElemento("p","cartel-info")
+            infoBloquear.classList.add("bloquear-desbloquear")
+            cajaColor.appendChild(infoBloquear)
+
+            candado.addEventListener("mouseenter",function(){
+                candado.classList.contains('desbloqueado') ? infoBloquear.textContent ="🖱️Haz click para bloquear" :  infoBloquear.textContent ="🖱️Haz click para desbloquear"
+                infoBloquear.style.display = "flex"
+            })
+
+            candado.addEventListener("mouseout",function(){
+                infoBloquear.style.display = "none"
+            })
+
+            //-------------------------------------------------------CODIGO DE COLOR GENERADO-------------------------------------------
+            // Muestra el codigo del color por la pantalla 
             const descripcionColor = crearElemento("p","descripcion-color")              
             descripcionColor.textContent = color
             cajaColor.appendChild(descripcionColor)
 
+            //Copia el codigo al portapapeles al hacer click 
             descripcionColor.addEventListener("click",function(){
                 navigator.clipboard.writeText(color)
                 microfeedback("📋 Código copiado al portapapeles","300px")
-                }
-            )
+                })
+
+            //Mostramos info al usuario para que copie el color 
+            const InfoCopiar = crearElemento("p","cartel-info")
+            InfoCopiar.classList.add("copiar")
+            InfoCopiar.textContent = "🖱️ Haz click para copiar"
+            cajaColor.appendChild(InfoCopiar)
+
+            descripcionColor.addEventListener("mouseenter", function(){
+                InfoCopiar.style.display= "flex"
+            })
+
+            descripcionColor.addEventListener("mouseout", function(){
+                InfoCopiar.style.display= "none"})
         }
     }
 })
             
-//MENSAJE USUARIO
+//-------------------------------------------------------MICROFEEDBACK GENERADO CON EXITO-------------------------------------------
 mensajeUsuario = crearElemento("p","mensaje-usuario")
 microfeedback("🚀✔️Paleta de colores generada con exito","350px")
 mensajeUsuario.style.display = "none"                                    // none "hace desaparecer nuestro elemento"
 contenedorMain.appendChild(mensajeUsuario)
 
-
-
+//-------------------------------------------------------MICROFEEDBACK TAMAÑO PALETA-------------------------------------------
 seleccionCantidad.addEventListener("change",function(){
     microfeedback(`🎨 Paleta de ${seleccionCantidad.value} colores seleccionada `, "300px")
 })
+
+//-------------------------------------------------------SELECCION DE FORMATO-------------------------------------------
+for (let i = 0; i < formato.length; i++) {
+    valorFormato = formato[i].value
+    formato[i].addEventListener("change",function(){
+        if(formato[i].checked){
+            valorFormato = formato[i].value
+        }
+        microfeedback(`🎯 Formato cambiado a ${valorFormato}`,"250px")
+    }
+)
+}
+
 
 
 

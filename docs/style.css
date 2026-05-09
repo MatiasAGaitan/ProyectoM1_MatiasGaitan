@@ -33,14 +33,15 @@ html{
 }
 body{
     height: 100%;
+    background-color: var(--grey-dark)
 }
 
 /* ------------- HEADER---------------- */
 .contenedor-header{
     background-color: var(--black-color);
     color: var(--white-color);
-    min-height: 15vh ;
     max-width: 100vw;
+    min-height: 15vh ;
 
     display: flex;
     flex-direction: column;
@@ -60,24 +61,24 @@ body{
 /* ---------BOTONES------------ */
 .contenedor-botones{
     background-color: var(--grey-dark);
-    min-height: 20vh;
+    min-height: 15vh;
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 15px ,repeat(2,1fr);
+    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-rows: 1fr 2fr 1fr;
     grid-template-areas: 
-        "titulo-seleccion .  "
-        "seleccion-cantidad boton-generar"
-        "consejo consejo "
+        "titulo-seleccion . .  "
+        "seleccion-cantidad boton-generar formato"
+        "consejo consejo consejo"
 ;
 
     justify-items: center;
     align-items: center;
 }
-.boton-generar, .boton-exportar, .seleccion-cantidad {
+.boton-generar, .boton-exportar, .seleccion-cantidad,.contenedor-formato {
     background-color: var(--grey-dark-transparent);
     color: var(--grey-color);
-    min-width: 30vh;
+    min-width: 15vw;
     min-height: 8vh;
     border-radius: 7px;
     font-size: var(--fs-md);
@@ -117,7 +118,7 @@ option{
 }
 .boton-generar{
     grid-area: boton-generar;
-    justify-self: start ;
+    justify-self: center ;
     margin-left: 20px;
 }
 
@@ -125,13 +126,31 @@ option{
     grid-area: consejo;
     color: var(--grey-color);
     margin-bottom: 15px;
-
 }
 
+.contenedor-formato{
+    justify-self: start;
+    grid-area: formato;
+    display: grid;
+    min-width: 18vw;
+    grid-template-columns: 1fr 1fr 1fr; 
+}
+
+.contenedor-botones p{
+    color: var(--grey-color);
+    font-size: var(--fs-lg);
+    align-self: center;
+    margin-left: 20px;
+}
+
+.check-hexa,.check-hsl{
+    font-size: var(--fs-lg);
+    align-self: center;
+}
 
 /*------------- CONTENEDOR COLORES ------------------ */
 .contenedor-colores{
-    min-height: 65vh;
+    min-height: 60vh;
     background-color: var(--grey-dark);
     display: grid;
 }
@@ -152,17 +171,15 @@ option{
     display: flex;
     flex-direction: column;
     justify-content: space-between ;
-    
 }
 .color:hover {
     transition: 0.5s;
     transform: translateY(-10px);
-
 }
 
 .candado{
-    max-width: 2rem;
-    max-height: 2rem;
+    max-width: 3vw;
+    max-height: 2vw;
     font-size: 2rem;
     cursor: pointer;
     background-color: rgba(255,255,255,0.5);
@@ -175,8 +192,10 @@ option{
     /* Transiciones suaves */
     transition: all 0.2s ;
 }
+
 .desbloqueado {
     transform: translateY(-3px); /* Se mueve a la derecha */
+
 }
 
 .descripcion-color{
@@ -190,8 +209,6 @@ option{
     padding: 5px;
     margin: 0 0 10px 10px;
     cursor: pointer;
-
-
 }
 
 .mensaje-usuario{
@@ -210,6 +227,32 @@ option{
     background-color: var(--grey-dark-transparent);
 }
 
+.cartel-info{
+    color: var(--white-color);
+    font-size: var(--fs-xs);
+    width: 145px;
+    height: 20px;
+    background-color: var(--black-color);
+    border-radius: 7px;
+    text-align: center;
+}
+
+.copiar{
+    display: none;
+    position:absolute;
+    bottom: 12%;
+    left: 60%;
+
+}
+
+.bloquear-desbloquear{
+    width: 165px;
+    display: none;
+    position: absolute;
+    bottom: 81%;
+    left: 10%;
+    
+}
 
 /* Control de media quires para moviles  */
 @media (max-width: 480px) {
@@ -227,33 +270,32 @@ option{
         min-height: 10vh;
         gap: 7px;
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,1fr);
         grid-template-areas: 
-        "titulo-seleccion"
+
         "seleccion-cantidad"
         "boton-generar"
+        "formato"
         "consejo";
     }
     
-    .boton-generar,.seleccion-cantidad{
+    .boton-generar,.seleccion-cantidad,.contenedor-formato{
         justify-self: center;
         min-width: 80vw;
         min-height: 8vh;
         margin: 0;
     }
-    
-    .titulo-seleccion {
-        justify-self: center;
-        align-self: center;
-        margin: 0;
-        margin-top: 5px;
+
+    .contenedor-header{
+        margin-bottom: 10px;
     }
     
     .consejo{
-        font-size: 0.7rem;
-        margin: 10px 10px 20px 20px;
-
+        text-align: center;
+        font-size: var(--fs-xs);
+        
     }
-    /* COLORES */
+
     .contenedor-colores{
         min-height: 70vh;
     }

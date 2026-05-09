@@ -16,8 +16,9 @@
 
         <div class="contenedor-botones">
 
-                    <h2 class="titulo-seleccion">Seleccione cantidad.  </h2>
+<!--                     <h2 class="titulo-seleccion">Seleccione cantidad.  </h2> -->
                     <select class="seleccion-cantidad">
+                        <option value="6">Tamaño de paleta</option>
                         <option value= 6 >6 Colores</option>
                         <option value= 8 >8 Colores</option>
                         <option value= 9 >9 Colores</option>
@@ -25,6 +26,18 @@
 
                 <button class="boton-generar">Generar</button>
 
+                <div class="contenedor-formato">  
+                    <p>Formato : </p>
+
+                    <label class="check-hsl">
+                        <input type="radio" name="formato" value="HSL" >  HSL
+                    </label>
+                    
+                    <label class="check-hexa">
+                        <input type="radio" name="formato"  value="HEXA" checked > HEXA
+                    </label>
+
+                </div> 
                 <p class="consejo">💡 Consejo: Haz clic en el candado para mantener un color al regenerar la paleta</p>
 
         
