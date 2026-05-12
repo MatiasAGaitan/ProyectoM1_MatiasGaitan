@@ -125,7 +125,7 @@ option{
 .consejo{
     grid-area: consejo;
     color: var(--grey-color);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .contenedor-formato{
@@ -146,6 +146,7 @@ option{
 .check-hexa,.check-hsl{
     font-size: var(--fs-lg);
     align-self: center;
+    accent-color: gold;
 }
 
 /*------------- CONTENEDOR COLORES ------------------ */

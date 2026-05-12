@@ -3,12 +3,12 @@ const botonGenerar = document.querySelector(".boton-generar");
 const contenedorColores = document.querySelector(".contenedor-colores")
 const seleccionCantidad = document.querySelector(".seleccion-cantidad")
 const contenedorMain = document.querySelector(".contenedor-main")
-const tamañoPaleta = document.querySelector(".option")
 const formato = document.querySelectorAll(`input[name="formato"]`)
+let valorFormato = document.querySelector(`input[name="formato"]:checked`).value
 
 //creo variables globales
 let feedbackTimeout
-let valorFormato
+let mensajeUsuario
 
 
 // Genera numeros aleatorios
@@ -31,6 +31,68 @@ const colorHexa = function(){
     }
     return color
 }
+
+const HSLaHEXA = function(HSL) {
+
+    // elimino datos no necesarios y los hacemos elementos de un array
+    const hslLimpio = HSL
+        .replace("hsl(", "")
+        .replace(")", "")
+        .replaceAll("%", "")
+        .split(",")
+
+    const h = Number(hslLimpio[0])    
+    const s = Number(hslLimpio[1])    
+    const l = Number(hslLimpio[2])    
+
+    // convierto s y l en decimales 
+    const saturation = s / 100;
+    const lightness = l / 100;
+
+    // De HSL a RGB
+    const c = (1 - Math.abs(2 * lightness - 1)) * saturation
+    const x = c * (1 - Math.abs((h / 60) % 2 - 1))
+    const m = lightness - c / 2
+
+    let r = 0
+    let g = 0
+    let b = 0
+
+    if (h >= 0 && h < 60) {
+        r = c
+        g = x
+    } else if (h >= 60 && h < 120) {
+        r = x
+        g = c
+    } else if (h >= 120 && h < 180) {
+        g = c
+        b = x
+    } else if (h >= 180 && h < 240) {
+        g = x
+        b = c
+    } else if (h >= 240 && h < 300) {
+        r = x
+        b = c
+    } else {
+        r = c
+        b = x
+    }
+
+    // convierto a rango 0-255
+    r = Math.round((r + m) * 255)
+    g = Math.round((g + m) * 255)
+    b = Math.round((b + m) * 255)
+
+    // Función auxiliar para HEX
+    function aHexa(valor) {
+        return valor.toString(16).padStart(2, "0")
+    }
+
+
+    // Retornar HEX final
+    return `#${aHexa(r)}${aHexa(g)}${aHexa(b)}`
+    }
+
 // Crea elementos y le da clase
 const crearElemento = function(elemento,clase){
     const nombre = document.createElement(String(elemento))                   
@@ -45,25 +107,33 @@ const microfeedback = function(texto,tamaño){
 
     clearTimeout(feedbackTimeout);
     
-    feedbackTimeout = setTimeout(function(){
+    feedbackTimeout = setTimeout(() => {
         mensajeUsuario.style.display = "none"
         },2000)
 }
 
 // EVENTO CLICK EN GENERAR
-botonGenerar.addEventListener("click",function(){
+botonGenerar.addEventListener("click",() => {
     
-    const valor = Number(seleccionCantidad.value)
+    let valor = seleccionCantidad.value
 
+    if (valor === "texto"){
+        microfeedback("⚠️ Debes elegir un tamaño de paleta","500px")
+        return;
+    }
+    
+    valor = Number(valor)
+    
     let tamañoAnterior = contenedorColores.classList[1]
     let tamañoNuevo = "colores-" + valor
     contenedorColores.classList.remove(tamañoAnterior)
     contenedorColores.classList.add(tamañoNuevo)   // le da la clase adecuada para elegir cantidad de columnas 
 
-    microfeedback("🚀✔️ Paleta de colores generada con exito","350px")
-
+    
     // si los hijos existen verificar candado
     if (contenedorColores.children.length === valor){
+        
+        microfeedback("🚀✔️ Paleta de colores generada con exito","350px")
         
         for (let i = 0 ; i < valor; i++){
             
@@ -76,9 +146,19 @@ botonGenerar.addEventListener("click",function(){
             if (candado.classList.contains("desbloqueado")){
                 const nuevoColor = valorFormato === "HEXA" ? colorHexa() : colorHsl()
                 caja.style.backgroundColor = nuevoColor;
-                descripcionColor.textContent = nuevoColor
-            }}
-
+                
+                if (valorFormato === "HSL") {
+                    const colorEnHexa = HSLaHEXA(nuevoColor)
+                    descripcionColor.innerHTML = `${nuevoColor}<br>${colorEnHexa}`
+                } else {
+                    descripcionColor.textContent = nuevoColor
+                }
+                descripcionColor.onclick = () => {
+                    navigator.clipboard.writeText(nuevoColor)
+                    microfeedback("📋 Código copiado al portapapeles","300px")
+                }
+            }
+        }   
     }else{
         //Los hijos no existen creamos todo
             //Formateo contenedor
@@ -100,30 +180,30 @@ botonGenerar.addEventListener("click",function(){
             cajaColor.appendChild(candado)
 
             //CLICK CANDADO
-            candado.addEventListener("click",function(){
+            candado.addEventListener("click",()=>{
                     // si candado desbloqueado lo bloqueamos
                 if (candado.classList.contains('desbloqueado')) {
                     candado.classList.remove("desbloqueado")
                     candado.src = "cerrado.png"
                     cajaColor.style.border = "4px solid gold"
-                    microfeedback("🔒 Color bloqueado", "200PX")
+                    microfeedback("🔒 Color bloqueado", "200px")
                 } else { // si esta bloqueado lo desbloqueamos
                     candado.classList.add("desbloqueado")
                     candado.src = "abierto.png"
                     cajaColor.style.border = "none"
-                    microfeedback("🔓 Color desbloqueado", "200PX")
+                    microfeedback("🔓 Color desbloqueado", "200px")
                 }}
             )                              
             const infoBloquear = crearElemento("p","cartel-info")
             infoBloquear.classList.add("bloquear-desbloquear")
             cajaColor.appendChild(infoBloquear)
 
-            candado.addEventListener("mouseenter",function(){
+            candado.addEventListener("mouseenter",() => {
                 candado.classList.contains('desbloqueado') ? infoBloquear.textContent ="🖱️Haz click para bloquear" :  infoBloquear.textContent ="🖱️Haz click para desbloquear"
                 infoBloquear.style.display = "flex"
             })
 
-            candado.addEventListener("mouseout",function(){
+            candado.addEventListener("mouseout", () => {
                 infoBloquear.style.display = "none"
             })
 
@@ -131,11 +211,18 @@ botonGenerar.addEventListener("click",function(){
             // Muestra el codigo del color por la pantalla 
             const descripcionColor = crearElemento("p","descripcion-color")              
             descripcionColor.textContent = color
+
+            if (valorFormato === "HSL") {
+                const colorEnHexa = HSLaHEXA(color)
+                descripcionColor.innerHTML = `${color}<br>${colorEnHexa}`
+            }
+
             cajaColor.appendChild(descripcionColor)
 
             //Copia el codigo al portapapeles al hacer click 
-            descripcionColor.addEventListener("click",function(){
-                navigator.clipboard.writeText(color)
+            descripcionColor.addEventListener("click", () => {
+                let codigoACopiar = color
+                navigator.clipboard.writeText(codigoACopiar)
                 microfeedback("📋 Código copiado al portapapeles","300px")
                 })
 
@@ -145,11 +232,11 @@ botonGenerar.addEventListener("click",function(){
             InfoCopiar.textContent = "🖱️ Haz click para copiar"
             cajaColor.appendChild(InfoCopiar)
 
-            descripcionColor.addEventListener("mouseenter", function(){
+            descripcionColor.addEventListener("mouseenter", () => {
                 InfoCopiar.style.display= "flex"
             })
 
-            descripcionColor.addEventListener("mouseout", function(){
+            descripcionColor.addEventListener("mouseout", () => {
                 InfoCopiar.style.display= "none"})
         }
     }
@@ -157,27 +244,22 @@ botonGenerar.addEventListener("click",function(){
             
 //-------------------------------------------------------MICROFEEDBACK GENERADO CON EXITO-------------------------------------------
 mensajeUsuario = crearElemento("p","mensaje-usuario")
-microfeedback("🚀✔️Paleta de colores generada con exito","350px")
-mensajeUsuario.style.display = "none"                                    // none "hace desaparecer nuestro elemento"
 contenedorMain.appendChild(mensajeUsuario)
 
 //-------------------------------------------------------MICROFEEDBACK TAMAÑO PALETA-------------------------------------------
-seleccionCantidad.addEventListener("change",function(){
+seleccionCantidad.addEventListener("change",() => {
     microfeedback(`🎨 Paleta de ${seleccionCantidad.value} colores seleccionada `, "300px")
 })
 
 //-------------------------------------------------------SELECCION DE FORMATO-------------------------------------------
-for (let i = 0; i < formato.length; i++) {
-    valorFormato = formato[i].value
-    formato[i].addEventListener("change",function(){
-        if(formato[i].checked){
-            valorFormato = formato[i].value
+formato.forEach(radio =>{
+    radio.addEventListener("change", () => {
+        if(radio.checked){
+            valorFormato = radio.value
+            microfeedback(`🎯 Formato cambiado a ${valorFormato}`,"250px")
         }
-        microfeedback(`🎯 Formato cambiado a ${valorFormato}`,"250px")
-    }
-)
-}
-
+    })
+})
 
 
 
