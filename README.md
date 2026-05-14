@@ -109,8 +109,8 @@ El proyecto fue organizado separando cada tecnología en carpetas diferentes par
  ┣ 📂 css
  ┃ ┗ 📜 style.css
  ┣ 📂 img
- ┃ ┗ 📜 abierto.png
- ┃ ┗ 📜 cerrado.png
+ ┃ ┣ 📜 abierto.png
+ ┃ ┣ 📜 cerrado.png
  ┃ ┗ 📜 logo.png
  ┣ 📂 js
  ┃ ┗ 📜 index.js
@@ -245,11 +245,12 @@ La página web desarrollada con HTML, CSS y JavaScript podrá visualizarse direc
 ## Herramientas
 - Git
 - GitHub
+- GitHub Pages
 - Visual Studio Code
 
 ---
 
-# 👨‍💻 Autor
+## 👨‍💻 Autor
 
 - Matias Gaitan
 - GitHub: https://github.com/MatiasAGaitan
