@@ -133,7 +133,7 @@ botonGenerar.addEventListener("click",() => {
     // si los hijos existen verificar candado
     if (contenedorColores.children.length === valor){
         
-        microfeedback("🚀✔️ Paleta de colores generada con exito","350px")
+        microfeedback(`🚀✔️ Paleta de colores ${valorFormato} generada con exito`,"380px")
         
         for (let i = 0 ; i < valor; i++){
             
@@ -155,13 +155,15 @@ botonGenerar.addEventListener("click",() => {
                 }
                 descripcionColor.onclick = () => {
                     navigator.clipboard.writeText(nuevoColor)
-                    microfeedback("📋 Código copiado al portapapeles","300px")
+                    microfeedback(`📋 Código ${nuevoColor} copiado`,"270px")
                 }
             }
         }   
     }else{
         //Los hijos no existen creamos todo
             //Formateo contenedor
+            microfeedback(`🚀✔️ Paleta de colores ${valorFormato} generada con exito`,"380px")
+
             contenedorColores.innerHTML= ""
 
         for (let i = 0 ; i < valor; i++){    
@@ -175,7 +177,7 @@ botonGenerar.addEventListener("click",() => {
             //-------------------------------------------------------CANDADO PARA BLOQUEAR Y DESBLOQUEAR COLOR-------------------------------------------
             //CANDADO
             const candado = crearElemento("img","candado")
-            candado.src ="abierto.png"
+            candado.src ="img/abierto.png"
             candado.classList.add("desbloqueado")
             cajaColor.appendChild(candado)
 
@@ -184,12 +186,12 @@ botonGenerar.addEventListener("click",() => {
                     // si candado desbloqueado lo bloqueamos
                 if (candado.classList.contains('desbloqueado')) {
                     candado.classList.remove("desbloqueado")
-                    candado.src = "cerrado.png"
+                    candado.src = "img/cerrado.png"
                     cajaColor.style.border = "4px solid gold"
                     microfeedback("🔒 Color bloqueado", "200px")
                 } else { // si esta bloqueado lo desbloqueamos
                     candado.classList.add("desbloqueado")
-                    candado.src = "abierto.png"
+                    candado.src = "img/abierto.png"
                     cajaColor.style.border = "none"
                     microfeedback("🔓 Color desbloqueado", "200px")
                 }}
@@ -223,7 +225,7 @@ botonGenerar.addEventListener("click",() => {
             descripcionColor.addEventListener("click", () => {
                 let codigoACopiar = color
                 navigator.clipboard.writeText(codigoACopiar)
-                microfeedback("📋 Código copiado al portapapeles","300px")
+                microfeedback(`📋 Código ${color} copiado`,"270px")
                 })
 
             //Mostramos info al usuario para que copie el color 
