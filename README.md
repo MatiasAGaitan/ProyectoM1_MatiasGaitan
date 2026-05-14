@@ -26,10 +26,30 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 
 ## 📘 Manual de Usuario
 
-```
+- Inicio al entrar a la web
 
+<img width="1143" height="362" alt="incio pagina paleta de colores " src="https://github.com/user-attachments/assets/72cb0d73-bda4-47da-90ff-043d3464942b"/>
 
-```
+1 - Elegir tamaño de paleta de colores. 
+
+2 - Elegir formato de colores.
+
+3 - Generar la paleta con tamaño y formato elegido.
+
+---
+- Generada la primer paleta de colores
+
+<img width="1896" height="858" alt="pagina paleta de colores generada" src="https://github.com/user-attachments/assets/b3b93021-f89b-4e8e-9164-ac1ce4fe0410" />
+
+4 - Candado desbloqueado - Al clickear sobre el candado se bloquea.
+
+5 - Candado bloqueado - Al clickear sobre el candado se desbloquea.
+
+6 - Un color bloqueado se indica con el borde del mismo en color dorado.
+
+7 - Codigo del color - Muestra el codigo del color, al clickear sobre el codigo se copia al portapapeles.
+
+---
 
 # 💻 Instalación y Ejecución Local
 
