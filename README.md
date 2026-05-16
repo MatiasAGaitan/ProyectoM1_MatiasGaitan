@@ -35,7 +35,7 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 
 ## 📘 Manual de Usuario
 
-- Inicio al entrar a la web
+### Inicio al entrar a la web
 
 <img width="1143" height="362" alt="incio pagina paleta de colores " src="https://github.com/user-attachments/assets/72cb0d73-bda4-47da-90ff-043d3464942b"/>
 
@@ -46,7 +46,8 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 3 - Generar la paleta con tamaño y formato elegido.
 
 ---
-- Generada la primer paleta de colores
+
+### Generada la primer paleta de colores
 
 <img width="1906" height="857" alt="pagina paleta de colores generada" src="https://github.com/user-attachments/assets/f8640eeb-166c-403d-be02-0a205358d2a2" />
 
@@ -58,7 +59,7 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 
 ---
 
-- Informacion de colores
+### Informacion de colores
 
 <img width="1274" height="152" alt="image" src="https://github.com/user-attachments/assets/6a5f8436-0508-4a42-9708-f5750da61ed7" />
 
@@ -67,6 +68,49 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 8 - En HEXADECIMAL solo muestra su codigo de color.
 
 - Ambos codigos se copian al portapapeles al hacer click en el mismo.
+
+---
+
+### Microfeedbacks
+
+#### -Generando la paleta, indica el formato del color
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/54dd8ea1-e001-4f8f-a051-f1ada6330f71" />
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/7da87069-3b3e-46e6-957a-d06d506cf6b5" /> <br>
+
+#### -Error al generar una paleta por no seleccionar un tamaño
+<img width="430" height="75" alt="image" src="https://github.com/user-attachments/assets/d527b1d5-9650-49a2-93ac-8b322357f737" />
+
+#### -Seleccionando el tamaño de la paleta
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/e1bc6e6e-5468-4a39-b128-7e3e1dfc6391" />
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/b42a3c1a-3610-411c-9374-dc16b2e2ae5e" />
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/9766e560-106e-4fa0-ac4d-721878b9d7cc" />
+
+#### -Seleccionando el formato del color
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/c8a52d0e-3eea-4454-8ca5-90bd3a0868ed" />
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/95b38292-68fd-42c2-9f3f-092f831b874c" />
+
+#### -Bloqueando / Desbloqueando el color
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/020836e7-adce-4e3c-b28f-a4d76df91fd2" />
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/84747613-0070-4fcc-9419-f88272f24d26" />
+
+#### -Copiando al portapeles el codigo del color
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/ba327c6d-a715-412c-a700-91be2f587403" />
+<img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/2bb3b7b9-e090-4531-a4fc-0eb63212e4a4" />
+
+### Informacion para el usuario
+
+#### Puntero se posiciona sobre el candado
+##### Desbloqueado
+<img width="210" height="35" alt="image" src="https://github.com/user-attachments/assets/4cba6d4f-9033-478e-8f7e-99d793fb8a94" />
+
+##### Bloqueado
+<img width="210" height="35" alt="image" src="https://github.com/user-attachments/assets/a5a2834e-ea4f-44c6-8d8e-7595834920da" />
+
+#### Puntero se posiciona sobre el codigo de color
+<img width="210" height="35" alt="image" src="https://github.com/user-attachments/assets/f279bf22-52fd-4901-b59b-efc435d4ca60" />
+
+#### Color bloqueado se destaca con un borde dorado
+<img width="210" height="500" alt="image" src="https://github.com/user-attachments/assets/78d62abd-f711-48c0-bbe0-63396c6a4787" />
 
 ---
 
