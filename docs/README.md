@@ -15,7 +15,7 @@
 
 ## 📖 Descripción
 
-Esta pagina web realizada para la empresa Colorfly Studio, cumple la funcion de generar una paleta de colores aleatoria.
+Esta página web realizada para la empresa Colorfly Studio, cumple la función de generar una paleta de colores aleatoria.
 
 El usuario puede elegir la cantidad de colores que quiere en su paleta (6, 8, 9) y tambien el formato del color (HSL, HEX).
 
@@ -25,8 +25,8 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 
 ## ✨ Funcionalidades
 
-- Selecciòn de tamaño de paleta (6, 8, o 9)
-- Selecciòn de formato de color (HSL o HEX)
+- Selección de tamaño de paleta (6, 8, o 9)
+- Selección de formato de color (HSL o HEX)
 - Generar paleta de colores formato y tamaño elegido
 - Bloquear colores para no generar nuevos en su lugar
 - Copiar el codigo del color al portapapeles
@@ -37,7 +37,7 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 
 ### Inicio al entrar a la web
 
-<img width="1143" height="362" alt="incio pagina paleta de colores " src="https://github.com/user-attachments/assets/72cb0d73-bda4-47da-90ff-043d3464942b"/>
+<img width="1143" height="362" alt="incio página paleta de colores " src="https://github.com/user-attachments/assets/72cb0d73-bda4-47da-90ff-043d3464942b"/>
 
 1 - Elegir tamaño de paleta de colores. 
 
@@ -49,11 +49,11 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 
 ### Generada la primer paleta de colores
 
-<img width="1906" height="857" alt="pagina paleta de colores generada" src="https://github.com/user-attachments/assets/f8640eeb-166c-403d-be02-0a205358d2a2" />
+<img width="1906" height="857" alt="página paleta de colores generada" src="https://github.com/user-attachments/assets/f8640eeb-166c-403d-be02-0a205358d2a2" />
 
-4 - Candado desbloqueado - Al clickear sobre el candado se bloquea.
+4 - Candado desbloqueado - Al hacer click sobre el candado se bloquea.
 
-5 - Candado bloqueado - Al clickear sobre el candado se desbloquea.
+5 - Candado bloqueado - Al hacer click sobre el candado se desbloquea.
 
 6 - Un color bloqueado se indica con el borde del mismo en dorado.
 
@@ -93,7 +93,7 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/020836e7-adce-4e3c-b28f-a4d76df91fd2" />
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/84747613-0070-4fcc-9419-f88272f24d26" />
 
-#### - Copiando al portapeles el codigo del color
+#### - Copiando al portapapeles el codigo del color
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/ba327c6d-a715-412c-a700-91be2f587403" />
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/2bb3b7b9-e090-4531-a4fc-0eb63212e4a4" />
 
