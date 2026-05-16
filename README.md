@@ -71,29 +71,29 @@ Tiene la opcion de bloquear colores para que no se regeneren los elegidos y de c
 
 ---
 
-### Microfeedbacks
+## 💬Microfeedbacks💬
 
-#### -Generando la paleta, indica el formato del color
+#### - Generando la paleta, indica el formato del color
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/54dd8ea1-e001-4f8f-a051-f1ada6330f71" />
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/7da87069-3b3e-46e6-957a-d06d506cf6b5" /> <br>
 
-#### -Error al generar una paleta por no seleccionar un tamaño
+#### - Error al generar una paleta por no seleccionar un tamaño
 <img width="430" height="75" alt="image" src="https://github.com/user-attachments/assets/d527b1d5-9650-49a2-93ac-8b322357f737" />
 
-#### -Seleccionando el tamaño de la paleta
+#### - Seleccionando el tamaño de la paleta
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/e1bc6e6e-5468-4a39-b128-7e3e1dfc6391" />
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/b42a3c1a-3610-411c-9374-dc16b2e2ae5e" />
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/9766e560-106e-4fa0-ac4d-721878b9d7cc" />
 
-#### -Seleccionando el formato del color
+#### - Seleccionando el formato del color
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/c8a52d0e-3eea-4454-8ca5-90bd3a0868ed" />
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/95b38292-68fd-42c2-9f3f-092f831b874c" />
 
-#### -Bloqueando / Desbloqueando el color
+#### - Bloqueando / Desbloqueando el color
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/020836e7-adce-4e3c-b28f-a4d76df91fd2" />
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/84747613-0070-4fcc-9419-f88272f24d26" />
 
-#### -Copiando al portapeles el codigo del color
+#### - Copiando al portapeles el codigo del color
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/ba327c6d-a715-412c-a700-91be2f587403" />
 <img width="320" height="75" alt="image" src="https://github.com/user-attachments/assets/2bb3b7b9-e090-4531-a4fc-0eb63212e4a4" />
 
